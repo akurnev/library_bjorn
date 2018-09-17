@@ -1,4 +1,6 @@
 /.vs/**
 /Debug/**
 /Ch9Classes/Debug/**
+/Ch9Classes/x64/**
+/x64/**
 /Ch9Classes/Debug/Ch9Classes.tlog/**
