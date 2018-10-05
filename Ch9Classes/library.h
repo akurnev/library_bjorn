@@ -75,6 +75,9 @@ public:
 
 	void Add_Book(Book book);
 	void Add_Patron(Patron patron);
+
+	vector<Patron> Get_Patrons_With_Debt_In_Membership_Fee();
+
 	vector<Transaction> transactions;
 
 	//What the fuck!!

@@ -95,6 +95,11 @@ Library::Transaction::Transaction(Book tbook, Patron tpatron, Date tdate)
 		throw runtime_error("[transaction]: patron is not found in library");
 	}
 
+	if (tpatron.Is_Membership_Fee_Paid() == false)
+	{
+		cout << "[transaction]: patron has membership fee debt!" << endl;
+	}
+
 	for (int i = 0; i < books.size(); ++i)
 	{
 		if (tbook.Get_Isbn() == books[i].Get_Isbn())
@@ -114,5 +119,20 @@ Library::Transaction::Transaction(Book tbook, Patron tpatron, Date tdate)
 	book = tbook;
 	patron = tpatron;
 	date = tdate;
+}
+
+vector<Patron> Library::Get_Patrons_With_Debt_In_Membership_Fee()
+{
+	vector<Patron> Patrons_With_Debt(0);
+
+	for (int i = 0; i < patrons.size(); ++i)
+	{
+		if (patrons[i].Is_Membership_Fee_Paid() == false)
+		{
+			Patrons_With_Debt.push_back(patrons[i]);
+		}
+	}
+	
+	return Patrons_With_Debt;
 }
 
